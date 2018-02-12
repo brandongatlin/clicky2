@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Card from "./components/Card/Card";
-import glyphs from "./glyphs"
+import glyphs from "./glyphs";
+import Start from "./components/Start/Start";
+import PlayerScore from "./components/Score/PlayerScore";
+import HighScore from "./components/HighScore/HighScore.js";
 
 
 class App extends Component {
@@ -12,7 +15,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to Clicky. A game build with React</h1>
+        <h1 className="App-title">Welcome to Clicky. A game build with React. Click an images, but NO REPEATS! Click Start, or any image to begin.</h1>
         </header>
 
         <div id="GameBoard" className="col-md-10">
@@ -28,7 +31,9 @@ class App extends Component {
         </div>
 
         <div className="col-md-2">
-          <p>hold score stuff</p>
+          <Start />
+          <HighScore />
+          <PlayerScore />
         </div>
 
       </div>
