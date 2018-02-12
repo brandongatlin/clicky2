@@ -13,6 +13,8 @@ const cardStyle = {
 
 //random logic here; draw card at random to that pix are shuffled on game start/after each pic click
 
+
+
 class Card extends React.Component {
   constructor(props) {
         super(props);
