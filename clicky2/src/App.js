@@ -15,10 +15,12 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to Clicky. A game build with React. Click an images, but NO REPEATS! Click Start, or any image to begin.</h1>
+        <h1 className="App-title">Welcome to Clicky. A game build with React. Click an images, but NO REPEATS! Click Start to begin.</h1>
         </header>
 
         <div id="GameBoard" className="col-md-10">
+
+        
 
           {glyphs.map(glyph => (
             <Card

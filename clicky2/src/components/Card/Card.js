@@ -11,6 +11,8 @@ const cardStyle = {
 //   this.setState({ count: this.state.count + 1 });
 // };
 
+//random logic here; draw card at random to that pix are shuffled on game start/after each pic click
+
 const Card = props => (
   <div className="col-md-3">
   <div className="card" style={cardStyle} onMouseEnter={this.hoverHandler}>
