@@ -1,12 +1,25 @@
-import React from "react";
+import React, {Component} from "react";
 
-const HighScore = (props) => {
-  return (
-  <div>
-    <h2>Best</h2>
-    <h3 id="Best">0</h3>
-  </div>
-)
+const ScoreStyle = {
+  border: '2px solid black'
+};
+
+class HighScore extends React.Component {
+  constructor(props) {
+        super(props);
+        this.state = { count: 0 };
+    }
+
+    render() {
+      return (
+      <div style={ScoreStyle}>
+        <h2>Best</h2>
+        <h3 id="Best">0</h3>
+      </div>
+    )
+  }
 }
+
+//handle functioning
 
 export default HighScore;

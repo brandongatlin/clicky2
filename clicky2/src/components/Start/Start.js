@@ -1,9 +1,18 @@
-import React from "react";
+import React, {Component} from "react";
 
-const Start = (props) => {
-  return (
-    <button type="button" className="btn btn-danger">Start</button>
-  )
-}
+class Start extends React.Component {
+  constructor(props) {
+        super(props);
+        // this.state = { count: 0 };
+    }
+
+    render() {
+      return (
+        <button type="button" className="btn btn-danger">Start</button>
+      )
+    }
+  }
+
+
 
 export default Start;

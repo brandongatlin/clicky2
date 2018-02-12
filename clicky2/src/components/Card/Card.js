@@ -13,15 +13,26 @@ const cardStyle = {
 
 //random logic here; draw card at random to that pix are shuffled on game start/after each pic click
 
-const Card = props => (
+class Card extends React.Component {
+  constructor(props) {
+        super(props);
+        // this.state = { count: 0 };
+    }
+
+render() {
+  return (
   <div className="col-md-3">
-  <div className="card" style={cardStyle} onMouseEnter={this.hoverHandler}>
-    <div className="img-container" style={cardStyle}>
-      <img alt={props.name} src={props.image} style={cardStyle}/>
+    <div className="card" style={cardStyle} onMouseEnter={this.hoverHandler}>
+      <div className="img-container" style={cardStyle}>
+        <img alt={this.props.name} src={this.props.image} style={cardStyle}/>
+      </div>
     </div>
   </div>
-</div>
-);
+  )
+  }
+}
+
+
 
 
 
