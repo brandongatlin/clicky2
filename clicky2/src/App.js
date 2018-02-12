@@ -7,6 +7,7 @@ import glyphs from "./glyphs";
 import Start from "./components/Start/Start";
 import PlayerScore from "./components/Score/PlayerScore";
 import HighScore from "./components/HighScore/HighScore.js";
+import Clock from "./components/Clock/Clock";
 
 
 class App extends Component {
@@ -33,6 +34,7 @@ class App extends Component {
         </div>
 
         <div className="col-md-2">
+          <Clock />
           <Start />
           <HighScore />
           <PlayerScore />
