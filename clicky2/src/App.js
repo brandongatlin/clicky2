@@ -45,6 +45,10 @@ class App extends Component {
   }
 }
 
+// const TimerUp = () => {
+//   alert: ("time's up!");
+// }
+
 export default App;
 
 // var shuffledCards = []
