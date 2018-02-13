@@ -14,7 +14,7 @@ class PlayerScore extends React.Component {
       return (
       <div style={BestStyle}>
         <h2>Current Score</h2>
-        <h3 id="PlayerScore">0</h3>
+        <h3 id="PlayerScore">{this.props.PlayerScore}</h3>
       </div>
     )
     }

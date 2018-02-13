@@ -24,7 +24,7 @@ class Card extends React.Component {
 render() {
   return (
   <div className="col-md-3 col-sm-4 col-xs-6">
-    <div className="card" style={cardStyle} onMouseEnter={this.hoverHandler}>
+    <div className="card" style={cardStyle} data-ident={this.props.id} onClick={this.props.handlerClick} onMouseEnter={this.hoverHandler}>
       <div className="img-container" style={cardStyle}>
         <img alt={this.props.name} src={this.props.image} style={cardStyle}/>
       </div>

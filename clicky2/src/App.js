@@ -11,6 +11,29 @@ import Clock from "./components/Clock/Clock";
 
 
 class App extends Component {
+constructor(props) {
+        super(props);
+        this.state = { clicked: [], glyphs: glyphs, PlayerScore: 0, HighScore: 0 };
+    }
+
+    handlerClick = (event) => {
+      console.log(event.id);
+      
+      if (this.state.clicked.indexOf(event.id) < 0) {
+        this.setState({PlayerScore: this.state.PlayerScore + 1, clicked: this.state.clicked.concat([event.id])})
+        console.log("clicked:", this.state.clicked)
+        console.log("score:", this.state.PlayerScore)
+        //other stuff, like score inc.
+      }else {
+         //shuffle cards again
+         //score stuff
+      }
+    }
+
+    randomizer = () => {
+      //
+    }
+
   render() {
     return (
       <div className="App">
@@ -21,14 +44,13 @@ class App extends Component {
 
         <div id="GameBoard" className="col-md-10">
 
-
-
-          {glyphs.map(glyph => (
+          {this.state.glyphs.map(glyph => (
             <Card
               id={glyph.id}
               key={glyph.id}
               name={glyph.name}
               image={glyph.image}
+              handlerClick = {this.handlerClick.bind(null, glyph)}
             />
           ))}
         </div>
@@ -37,13 +59,17 @@ class App extends Component {
           <Clock />
           <Start />
           <HighScore />
-          <PlayerScore />
+          <
+          PlayerScore 
+            PlayerScore = {this.state.PlayerScore}
+          />
         </div>
 
       </div>
     );
   }
 }
+
 
 // const TimerUp = () => {
 //   alert: ("time's up!");
