@@ -14,7 +14,7 @@ class HighScore extends React.Component {
       return (
       <div style={ScoreStyle}>
         <h2>Best</h2>
-        <h3 id="Best">0</h3>
+        <h3 id="Best">{this.props.HighScore}</h3>
       </div>
     )
   }

@@ -18,21 +18,21 @@ constructor(props) {
 
     handlerClick = (event) => {
       console.log(event.id);
-      
+
       if (this.state.clicked.indexOf(event.id) < 0) {
-        this.setState({PlayerScore: this.state.PlayerScore + 1, clicked: this.state.clicked.concat([event.id])})
-        console.log("clicked:", this.state.clicked)
-        console.log("score:", this.state.PlayerScore)
-        //other stuff, like score inc.
+        this.setState({PlayerScore: this.state.PlayerScore + 1, HighScore: this.state.PlayerScore, clicked: this.state.clicked.concat([event.id])})
+        // console.log("clicked:", this.state.clicked)
+        // console.log("score:", this.state.PlayerScore)
       }else {
+        this.setState({PlayerScore: 0})
          //shuffle cards again
          //score stuff
       }
     }
 
-    randomizer = () => {
-      //
-    }
+    // randomizer = () => {
+    //   this.setState({clicked: []})
+    // }
 
   render() {
     return (
@@ -58,9 +58,12 @@ constructor(props) {
         <div className="col-md-2">
           <Clock />
           <Start />
-          <HighScore />
           <
-          PlayerScore 
+          HighScore
+            HighScore = {this.state.HighScore}
+        />
+          <
+          PlayerScore
             PlayerScore = {this.state.PlayerScore}
           />
         </div>
