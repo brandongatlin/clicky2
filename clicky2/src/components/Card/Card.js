@@ -6,11 +6,12 @@ const cardStyle = {
   border: '2px solid black'
 };
 
-// handleHover = () => {
-//   // We always use the setState method to update a component's state
-//   this.setState({ count: this.state.count + 1 });
-// };
 
+const hoverStyle = {
+  // color: "red"
+  border: '8px solid red'
+
+}
 //random logic here; draw card at random to that pix are shuffled on game start/after each pic click
 
 
@@ -21,10 +22,18 @@ class Card extends React.Component {
         // this.state = { count: 0 };
     }
 
+    handleHover = () => {
+      // We always use the setState method to update a component's state
+      // this.setState({ style: this.hoverStyle });
+      console.log("mouse entered");
+    };
+
 render() {
   return (
+
+
   <div className="col-md-3 col-sm-4 col-xs-6">
-    <div className="card" style={cardStyle} data-ident={this.props.id} onClick={this.props.handlerClick} onMouseEnter={this.hoverHandler}>
+    <div className="card" style={cardStyle} data-ident={this.props.id} onClick={this.props.handlerClick} onMouseEnter={this.handleHover}>
       <div className="img-container" style={cardStyle}>
         <img alt={this.props.name} src={this.props.image} style={cardStyle}/>
       </div>

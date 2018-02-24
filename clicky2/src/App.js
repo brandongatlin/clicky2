@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
+
 import logo from './logo.svg';
 import './App.css';
 import Card from "./components/Card/Card";
@@ -10,17 +10,31 @@ import HighScore from "./components/HighScore/HighScore.js";
 import Clock from "./components/Clock/Clock";
 
 
+
 class App extends Component {
 constructor(props) {
         super(props);
         this.state = { clicked: [], glyphs: glyphs, PlayerScore: 0, HighScore: 0 };
     }
 
+    randomizer(glyphs) {
+        for (let i = glyphs.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+
+            // console.log("i", glyphs[i]);
+            // console.log("j", glyphs[j]);
+        }
+
+  }//end randomizer fx
+
     handlerClick = (event) => {
       console.log(event.id);
 
+
       if (this.state.clicked.indexOf(event.id) < 0) {
         this.setState({PlayerScore: this.state.PlayerScore + 1, HighScore: this.state.PlayerScore, clicked: this.state.clicked.concat([event.id])})
+        this.randomizer(glyphs)
+
         // console.log("clicked:", this.state.clicked)
         // console.log("score:", this.state.PlayerScore)
       }else {
@@ -28,14 +42,18 @@ constructor(props) {
          //shuffle cards again
          //score stuff
       }
-    }
+      //do this no matter what the guess
 
-    // randomizer = () => {
-    //   this.setState({clicked: []})
-    // }
+    }//end handlerClick fx
+
+
+
+
 
   render() {
+
     return (
+
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -73,13 +91,13 @@ constructor(props) {
   }
 }
 
-
 // const TimerUp = () => {
 //   alert: ("time's up!");
 // }
 
 export default App;
 
-// var shuffledCards = []
-// var randomCard = glyphs[Math.floor(Math.random() * glyphs.length)]
-// shuffledCards.push(randoCard)
+var shuffledCards = []
+var randomCard = glyphs[Math.floor(Math.random() * glyphs.length)]
+shuffledCards.push(randomCard)
+console.log("shuffled cards:", shuffledCards);
