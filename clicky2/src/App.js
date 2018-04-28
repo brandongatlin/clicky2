@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 
 import logo from './logo.svg';
 import './App.css';
@@ -9,44 +11,76 @@ import PlayerScore from "./components/Score/PlayerScore";
 import HighScore from "./components/HighScore/HighScore.js";
 import Clock from "./components/Clock/Clock";
 
+var shuffledCards = []
 
 
 class App extends Component {
-constructor(props) {
-        super(props);
-        this.state = { clicked: [], glyphs: glyphs, PlayerScore: 0, HighScore: 0 };
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: [],
+      glyphs: glyphs,
+      PlayerScore: 0,
+      HighScore: 0
+    };
+  }
+
+  randomizer = data => {
+    let i = data.length - 1;
+    while (i > 0) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const temp = data[i];
+      data[i] = data[j];
+      data[j] = temp;
+      i--;
     }
+    return data;
+  }; //end randomizer
 
-    randomizer(glyphs) {
-        for (let i = glyphs.length - 1; i > 0; i--) {
-            let j = Math.floor(Math.random() * (i + 1));
-
-            // console.log("i", glyphs[i]);
-            // console.log("j", glyphs[j]);
-        }
-
-  }//end randomizer fx
-
-    handlerClick = (event) => {
-      console.log(event.id);
+  handlerClick = (event) => {
+    console.log(event.id);
 
 
-      if (this.state.clicked.indexOf(event.id) < 0) {
-        this.setState({PlayerScore: this.state.PlayerScore + 1, HighScore: this.state.PlayerScore, clicked: this.state.clicked.concat([event.id])})
-        this.randomizer(glyphs)
+    if (this.state.clicked.indexOf(event.id) < 0) {
 
-        // console.log("clicked:", this.state.clicked)
-        // console.log("score:", this.state.PlayerScore)
-      }else {
-        this.setState({PlayerScore: 0})
-         //shuffle cards again
-         //score stuff
-      }
-      //do this no matter what the guess
+      this.setState({
+        PlayerScore: this.state.PlayerScore + 1,
+        HighScore: this.state.PlayerScore,
+        clicked: this.state.clicked.concat([event.id])
+      })
+      this.randomizer(glyphs)
 
-    }//end handlerClick fx
+      // console.log("clicked:", this.state.clicked)
+      // console.log("score:", this.state.PlayerScore)
+    } else {
+      this.setState({
+        PlayerScore: 0
 
+      })
+      this.randomizer(glyphs)
+      //score stuff
+    }
+    //do this no matter what the guess
 
+  } //end handlerClick fx
+
+  newGame = (randomizer) => {
+    randomizer();
+    this.setState({
+      PlayerScore: 0,
+
+    })
+
+    if (HighScore > PlayerScore) {
+      this.setState({
+        HighScore: HighScore
+      })
+    } else {
+      this.setState({
+        HighScore: PlayerScore
+      })
+    }
+  }
 
 
 
@@ -57,7 +91,7 @@ constructor(props) {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-        <h1 className="App-title">Welcome to Clicky, a game build with React.js. Click any image, but NO REPEATS!<br /> Click Start to begin.</h1>
+          <h1 className="App-title">Welcome to Clicky, a game build with React.js. Click any image, but NO REPEATS!<br /> Click Start to begin.</h1>
         </header>
 
         <div id="GameBoard" className="col-md-10">
@@ -78,11 +112,11 @@ constructor(props) {
           <Start />
           <
           HighScore
-            HighScore = {this.state.HighScore}
-        />
+          HighScore = {this.state.HighScore}
+          />
           <
           PlayerScore
-            PlayerScore = {this.state.PlayerScore}
+          PlayerScore = {this.state.PlayerScore}
           />
         </div>
 
@@ -96,8 +130,3 @@ constructor(props) {
 // }
 
 export default App;
-
-var shuffledCards = []
-var randomCard = glyphs[Math.floor(Math.random() * glyphs.length)]
-shuffledCards.push(randomCard)
-console.log("shuffled cards:", shuffledCards);

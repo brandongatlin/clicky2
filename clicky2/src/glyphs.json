@@ -1,5 +1,4 @@
-[
-  {
+[{
     "id": 1,
     "name": "M",
     "image": "http://www.artyfactory.com/egyptian_art/egyptian_hieroglyphs/images/hieroglyphs/hieroglyphic-m.jpg"
@@ -37,8 +36,8 @@
 
   {
     "id": 7,
-    "name": "M",
-    "image": "http://www.artyfactory.com/egyptian_art/egyptian_hieroglyphs/images/hieroglyphs/hieroglyphic-m.jpg"
+    "name": "I",
+    "image": "http://www.artyfactory.com/egyptian_art/egyptian_hieroglyphs/images/hieroglyphs/hieroglyphic-i.jpg"
   },
 
   {
