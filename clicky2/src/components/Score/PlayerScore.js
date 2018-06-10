@@ -4,7 +4,7 @@ const BestStyle = {
   border: '2px solid black'
 };
 
-class PlayerScore extends React.Component {
+class PlayerScore extends Component {
   constructor(props) {
         super(props);
         this.state = { count: 0 };

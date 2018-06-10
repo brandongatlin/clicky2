@@ -11,7 +11,7 @@ import PlayerScore from "./components/Score/PlayerScore";
 import HighScore from "./components/HighScore/HighScore.js";
 import Clock from "./components/Clock/Clock";
 
-var shuffledCards = []
+// var shuffledCards = []
 
 
 class App extends Component {
@@ -38,14 +38,14 @@ class App extends Component {
   }; //end randomizer
 
   handlerClick = (event) => {
-    console.log(event.id);
+    // console.log(event.id);
 
 
     if (this.state.clicked.indexOf(event.id) < 0) {
 
       this.setState({
         PlayerScore: this.state.PlayerScore + 1,
-        HighScore: this.state.PlayerScore,
+        HighScore: this.state.HighScore + 1,
         clicked: this.state.clicked.concat([event.id])
       })
       this.randomizer(glyphs)
@@ -54,7 +54,8 @@ class App extends Component {
       // console.log("score:", this.state.PlayerScore)
     } else {
       this.setState({
-        PlayerScore: 0
+        PlayerScore: 0,
+        HighScore: this.state.HighScore
 
       })
       this.randomizer(glyphs)
@@ -65,6 +66,7 @@ class App extends Component {
   } //end handlerClick fx
 
   newGame = (randomizer) => {
+    console.log("new game fx");
     randomizer();
     this.setState({
       PlayerScore: 0,
@@ -109,13 +111,15 @@ class App extends Component {
 
         <div className="col-md-2">
           <Clock />
-          <Start />
-          <
-          HighScore
+          <Start
+            // newGame={this.newGame()}
+            handlerClick = {this.handlerClick}
+
+           />
+          <HighScore
           HighScore = {this.state.HighScore}
           />
-          <
-          PlayerScore
+          <PlayerScore
           PlayerScore = {this.state.PlayerScore}
           />
         </div>

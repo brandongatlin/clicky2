@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+// import Interactive from 'react-interactive';
 
 const cardStyle = {
   width: '150px',
@@ -6,31 +7,27 @@ const cardStyle = {
   border: '2px solid black'
 };
 
-
-const hoverStyle = {
-  // color: "red"
-  border: '8px solid red'
-
-}
-//random logic here; draw card at random to that pix are shuffled on game start/after each pic click
+// const hoverStyle = {
+//   border: '2px solid red'
+// }
 
 
-
-class Card extends React.Component {
+  class Card extends Component {
   constructor(props) {
         super(props);
-        // this.state = { count: 0 };
+        this.state = {
+          border: '2px solid blue'
+   };
+        // console.log("card props", props);
     }
-
     handleHover = () => {
-      // We always use the setState method to update a component's state
-      // this.setState({ style: this.hoverStyle });
+      this.setState({ border:'2px solid red' });
       console.log("mouse entered");
     };
 
 render() {
-  return (
 
+  return (
 
   <div className="col-md-3 col-sm-4 col-xs-6">
     <div className="card" style={cardStyle} data-ident={this.props.id} onClick={this.props.handlerClick} onMouseEnter={this.handleHover}>
@@ -44,10 +41,4 @@ render() {
 }
 
 
-
-
-
 export default Card;
-
-
-//onClick={() => props.removeFriend(props.id)} className="remove"

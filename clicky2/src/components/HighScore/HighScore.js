@@ -4,7 +4,7 @@ const ScoreStyle = {
   border: '2px solid black'
 };
 
-class HighScore extends React.Component {
+class HighScore extends Component {
   constructor(props) {
         super(props);
         this.state = { count: 0 };
