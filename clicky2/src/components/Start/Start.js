@@ -11,8 +11,8 @@ class Start extends Component {
 
   render() {
     return (
-      // <button type="button" className="btn btn-danger" onClick={this.randomizer}>Start</button>
-      <button type="button" className="btn btn-danger" onClick={this.props.handlerClick}>Start</button>
+      <button type="button" className="btn btn-danger" onClick={this.props.newGame}>Start</button>
+      // <button type="button" className="btn btn-danger" onClick={this.props.handlerClick}>Start</button>
 
     )
   }

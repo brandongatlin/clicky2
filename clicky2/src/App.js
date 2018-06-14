@@ -38,48 +38,54 @@ class App extends Component {
   }; //end randomizer
 
   handlerClick = (event) => {
-    // console.log(event.id);
+    if (this.state.clicked.indexOf(event.id) >= 0) {
+
+    this.setState({
+      PlayerScore: 0,
+      clicked: [],
+    })
+    this.randomizer(glyphs)
+    //score stuff
+  } else {
+
+if (this.state.PlayerScore >= this.state.HighScore){
+
+  this.setState({
+    PlayerScore: this.state.PlayerScore + 1,
+    HighScore: this.state.PlayerScore + 1,
+    clicked: this.state.clicked.concat([event.id])
+  })
+  this.randomizer(glyphs)
+} else {
+
+  this.setState({
+    PlayerScore: this.state.PlayerScore + 1,
+    clicked: this.state.clicked.concat([event.id])
+  })
+  this.randomizer(glyphs)
+
+}
 
 
-    if (this.state.clicked.indexOf(event.id) < 0) {
-
-      this.setState({
-        PlayerScore: this.state.PlayerScore + 1,
-        HighScore: this.state.HighScore + 1,
-        clicked: this.state.clicked.concat([event.id])
-      })
-      this.randomizer(glyphs)
-
-      // console.log("clicked:", this.state.clicked)
-      // console.log("score:", this.state.PlayerScore)
-    } else {
-      this.setState({
-        PlayerScore: 0,
-        HighScore: this.state.HighScore
-
-      })
-      this.randomizer(glyphs)
-      //score stuff
     }
     //do this no matter what the guess
 
   } //end handlerClick fx
 
   newGame = (randomizer) => {
-    console.log("new game fx");
-    randomizer();
+    // console.log("new game fx");
+    this.randomizer(glyphs);
     this.setState({
       PlayerScore: 0,
-
     })
 
-    if (HighScore > PlayerScore) {
+    if (this.state.HighScore > this.state.PlayerScore) {
       this.setState({
-        HighScore: HighScore
+        HighScore: this.state.HighScore
       })
     } else {
       this.setState({
-        HighScore: PlayerScore
+        HighScore: this.state.PlayerScore
       })
     }
   }
@@ -110,11 +116,8 @@ class App extends Component {
         </div>
 
         <div className="col-md-2">
-          <Clock />
           <Start
-            // newGame={this.newGame()}
-            handlerClick = {this.handlerClick}
-
+            newGame={this.newGame}
            />
           <HighScore
           HighScore = {this.state.HighScore}
