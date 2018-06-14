@@ -9,10 +9,6 @@ import glyphs from "./glyphs";
 import Start from "./components/Start/Start";
 import PlayerScore from "./components/Score/PlayerScore";
 import HighScore from "./components/HighScore/HighScore.js";
-import Clock from "./components/Clock/Clock";
-
-// var shuffledCards = []
-
 
 class App extends Component {
   constructor(props) {
@@ -63,17 +59,13 @@ if (this.state.PlayerScore >= this.state.HighScore){
     clicked: this.state.clicked.concat([event.id])
   })
   this.randomizer(glyphs)
-
 }
 
-
     }
-    //do this no matter what the guess
 
   } //end handlerClick fx
 
   newGame = (randomizer) => {
-    // console.log("new game fx");
     this.randomizer(glyphs);
     this.setState({
       PlayerScore: 0,
@@ -90,22 +82,21 @@ if (this.state.PlayerScore >= this.state.HighScore){
     }
   }
 
-
-
   render() {
 
     return (
 
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Clicky, a game build with React.js. Click any image, but NO REPEATS!<br /> Click Start to begin.</h1>
+      <div className="App" id="App">
+        <header id="App-header">
+
+          <h1 className="App-title">What is the secret of the Sphinx? <br /> Choose a glyph, but select a new glyph each time, or you will be <em>cursed!</em></h1>
         </header>
 
-        <div id="GameBoard" className="col-md-10">
+        <div id="GameBoard">
 
           {this.state.glyphs.map(glyph => (
             <Card
+              className="card"
               id={glyph.id}
               key={glyph.id}
               name={glyph.name}
@@ -115,7 +106,7 @@ if (this.state.PlayerScore >= this.state.HighScore){
           ))}
         </div>
 
-        <div className="col-md-2">
+        <div id="info">
           <Start
             newGame={this.newGame}
            />
@@ -131,9 +122,5 @@ if (this.state.PlayerScore >= this.state.HighScore){
     );
   }
 }
-
-// const TimerUp = () => {
-//   alert: ("time's up!");
-// }
 
 export default App;

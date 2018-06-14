@@ -1,5 +1,35 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+#App {
+  /* max-width: 90%; */
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: .5em;
+  grid-template-areas:
+  ". header header header header header ."
+  " . GameBoard GameBoard GameBoard GameBoard info .";
+  grid-template-columns: 100px repeat(5, 1fr) 100px;
+
+}
+
+#GameBoard {
+  display: grid;
+  grid-area: GameBoard;
+  grid-row-gap: .5em;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(minmax(150px, auto));
+}
+
+#info {
+  grid-area: info;
+}
+
+#App-header {
+  grid-area: header;
+}
+
+.card {
+  /* justify-content: start; */
+}
+
+#root {
+  background-image: url('./images/pyramids.jpg');
 }
