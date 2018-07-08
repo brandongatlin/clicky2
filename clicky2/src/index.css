@@ -24,12 +24,14 @@
   grid-area: header;
 }
 
-.card {
-  /* justify-content: start; */
+.btn {
+  height: 5em;
+  width: 10em;
 }
 
 #root {
   background-image: url('./images/pyramids.jpg');
+  background-size: cover;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -43,7 +45,6 @@
 
 @media only screen and (max-width: 800px) {
   #GameBoard {
-    display: grid;
     grid-area: GameBoard;
     grid-row-gap: .5em;
     grid-template-columns: repeat(3, 1fr);
