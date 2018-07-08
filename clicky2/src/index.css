@@ -6,6 +6,8 @@
   grid-template-areas: ". header header header header header ." " . GameBoard GameBoard GameBoard GameBoard info .";
   grid-template-columns: 100px repeat(5, 1fr) 100px;
   max-width: 100vw;
+  background-image: url('./images/pyramids.jpg');
+  background-size: cover;
 }
 
 #GameBoard {
@@ -30,8 +32,8 @@
 }
 
 #root {
-  background-image: url('./images/pyramids.jpg');
-  background-size: cover;
+  /* background-image: url('./images/pyramids.jpg');
+  background-size: cover; */
 }
 
 @media only screen and (max-width: 1000px) {
@@ -49,5 +51,19 @@
     grid-row-gap: .5em;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(minmax(150px, auto));
+  }
+  .card {
+    max-width: 33.33vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #GameBoard {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(minmax(100px, auto));
+  }
+  .card {
+    max-width: 50vw;
+    /* max-height: 10vh; */
   }
 }

@@ -7,22 +7,16 @@ const cardStyle = {
   border: '2px solid black'
 };
 
-// const hoverStyle = {
-//   border: '2px solid red'
-// }
-
-
   class Card extends Component {
   constructor(props) {
         super(props);
         this.state = {
           border: '2px solid blue'
    };
-        // console.log("card props", props);
+
     }
     handleHover = () => {
       this.setState({ border:'2px solid red' });
-      console.log("mouse entered");
     };
 
 render() {
